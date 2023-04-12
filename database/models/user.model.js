@@ -42,10 +42,13 @@ const userSchema = mongoose.Schema({
         trim:true,
         lowercase:true,
         enum:["male", "female"]
-    }, 
-    dOfBirth:{
-        type:Date
-    }, 
+    },
+    day:{
+        type:String,
+        trim:true,
+        lowercase:true,
+        enum:["Saturday","Sunday","Tuesday", "Wednesday", "Thursday", "Friday"]
+    },
     phone:{
         type:String,
         trim:true,
@@ -54,22 +57,6 @@ const userSchema = mongoose.Schema({
                 throw new Error("invalid phone number")
         }
     }, 
-    addresses: [
-        {
-            addrName:{
-                type:String,
-                trim:true,
-                required:true,
-                lowercase:true,        
-            }, 
-            addrDetails:{
-                type:String,
-                trim:true,
-                required:true,
-                lowercase:true,        
-            }
-        }
-    ],
     tokens:[
         {
             token:{
@@ -96,7 +83,6 @@ userSchema.statics.loginMe = async (email, password) => {
 
 userSchema.methods.generateToken = async function(){
     const token = jwt.sign({_id: this._id}, process.env.JWTKEY)
-    // this.tokens.push({token})
     this.tokens = this.tokens.concat({token})
     await this.save()
     return token
