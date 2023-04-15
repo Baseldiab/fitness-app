@@ -2,7 +2,14 @@ const mongoose = require("mongoose")
 const validator = require("validator")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+// ======================================
 const userSchema = mongoose.Schema({
+    userType: {
+        type: String,
+        trim: true,
+        required: true,
+        enum: ["admin","user"]
+    },
     fname:{
         type:String,
         trim: true,
@@ -40,22 +47,7 @@ const userSchema = mongoose.Schema({
     gender:{
         type:String,
         trim:true,
-        lowercase:true,
         enum:["male", "female"]
-    },
-    day:{
-        type:String,
-        trim:true,
-        lowercase:true,
-        enum:["Saturday","Sunday","Tuesday", "Wednesday", "Thursday", "Friday"]
-    },
-    phone:{
-        type:String,
-        trim:true,
-        validate(value){
-            if(!validator.isMobilePhone(value, 'ar-EG'))
-                throw new Error("invalid phone number")
-        }
     }, 
     tokens:[
         {
@@ -68,11 +60,26 @@ const userSchema = mongoose.Schema({
 },{
     timestamps:true
 })
-
+// ==========================================
+userSchema.virtual("myTasks", {
+    ref:"Cart",
+    localField:"_id",
+    foreignField:"userId"
+})
+// ==========================================
+userSchema.methods.toJSON = function(){
+    const data = this.toObject()
+    delete data.__v
+    delete data.password
+    delete data.tokens
+    return data
+}
+// ==========================================
 userSchema.pre("save", async function(){
     if(this.isModified("password"))
-        this.password = await bcrypt.hash(this.password, 12)
+    this.password = await bcrypt.hash(this.password, 12)
 })
+// ==========================================
 userSchema.statics.loginMe = async (email, password) => {
     const userData = await userModel.findOne( { email } )
     if(!userData) throw new Error ("invalid email")
@@ -80,13 +87,13 @@ userSchema.statics.loginMe = async (email, password) => {
     if(!matched) throw new Error ("invalid password")
     return userData
 }
-
+// ==========================================
 userSchema.methods.generateToken = async function(){
     const token = jwt.sign({_id: this._id}, process.env.JWTKEY)
     this.tokens = this.tokens.concat({token})
     await this.save()
     return token
 }
-
+// ==========================================
 const userModel = mongoose.model("User", userSchema)
 module.exports = userModel

@@ -1,5 +1,6 @@
 const userModel = require("../../database/models/user.model")
 const Helper = require("../helper")
+// ======================================================
 class User{
     static register = async(req,res)=>{
         try{
@@ -8,12 +9,12 @@ class User{
             Helper.resHandler(res, 200, true, userData, "user added successfull")
         }
         catch(e){
-            Helper.resHandler(res, 500, false, e, "Error Adding data")
+            Helper.resHandler(res, 500, false, e.message, "Error Adding data")
         }
     }
-    static all = async(req,res)=>{
-        try{
-            const userData = await userModel.find()
+static all = async(req,res)=>{
+    try{
+        const userData = await userModel.find()
             Helper.resHandler(res, 200, true, userData, "users featched")
         }
         catch(e){
@@ -70,20 +71,8 @@ class User{
             Helper.resHandler(res, 500, false, e, e.message)
         }
     }
-    static activate = async(req, res)=>{
-        try{
-            const userData = await userModel.findById(req.params.id)
-            userData.status= true
-            await userData.save()
-            Helper.resHandler(res, 200, true, userData, "users featched")
-        }
-        catch(e){
-            Helper.resHandler(res, 500, false, e.message, "Error featch data")
-        }
-
-    }
     static profile = async (req,res)=>{
-        Helper.resHandler(res, 200, true, req.user, "fdxd")
+        Helper.resHandler(res, 200, true, req.user, "view my profile")
     }
     static logOut = async(req,res)=>{
         try{
@@ -105,6 +94,6 @@ class User{
             Helper.resHandler(res, 500, false, e.message, "Error featch data")
         }
     }
-
 }
+
 module.exports=User

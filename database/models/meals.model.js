@@ -1,38 +1,31 @@
 const mongoose = require("mongoose")
-const validator = require("validator")
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+// const validator = require("validator")
+// const bcrypt = require("bcrypt")
+// const jwt = require("jsonwebtoken")
 const mealSchema = mongoose.Schema({
-    carb:{
+    mealName: {
         type:String,
-        trim:true,
-        capitalize: true,
-        enum:["rice", "potatoes", "sweet potato" ,"oats" ]
+        trim:true
     },
-    // بامية + كوسة + فاصوليا خضراء + بسلة 
-    vegetables:{
+    meal:{
         type:String,
-        trim:true,
-        capitalize: true,
-        enum:["zucchini", "pea" ,"okra", "green beans","broccoli" ]
+        trim:true
+        // carbs : ["rice", "potatoes", "sweet potato" ,"oats" ]
+        // vegetables: ["zucchini", "pea" ,"okra", "green beans","broccoli" ]
+        // protein : ["meat", "chicken", "fish" ,"tuna fish","egg"]
     },
-    protein:{
+    mealCatogery: {
         type:String,
-        trim:true,
-        capitalize: true,
-        enum:["meat", "chicken", "fish" ,"tuna fish"]
+        trim: true
+        // breakfast , launch , dinner
     },
-    day:{
-        type:String,
-        trim:true,
-        capitalize: true,
-        enum:["Saturday","Sunday","Tuesday", "Wednesday", "Thursday", "Friday"]
-    },
-
+    
+    price: {
+        type: Number,
+        required: true
+    }
 },{
     timestamps:true
 })
-
-
 const mealModel = mongoose.model("Meal", mealSchema)
 module.exports = mealModel

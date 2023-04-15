@@ -1,22 +1,19 @@
 const router = require("express").Router()
 const userController = require("../app/controller/user.controller")
-const auth = require("../app/middleware/auth.middleware")
-
-
+const {authAdmin, authUser} = require("../app/middleware/auth.middleware")
+// =================================================
 router.post("/register", userController.register)
 router.post("/login", userController.login)
-router.post("/logout", auth, userController.logOut)
-router.post("/logoutAll", auth, userController.logOutAll)
-
-router.get("/", auth, userController.all)
+router.post("/logout", authUser, userController.logOut)
+router.post("/logoutAll",authAdmin, authUser, userController.logOutAll)
+// =================================================
+router.get("/", authUser, userController.all)
 router.get("/single/:id", userController.single)
-router.get("/me", auth, userController.profile)
-
-router.delete("/", userController.delAll)
+router.get("/me", authUser, userController.profile)
+// ==================================================
+router.delete("/",authAdmin,userController.delAll)
 router.delete("/single/:id", userController.delSingle)
-
-router.patch("/single/:id", userController.editSingle)
-
-
+// ==================================================
+router.patch("/single/:id",authUser, userController.editSingle)
 
 module.exports = router
