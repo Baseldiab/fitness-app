@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const validator = require("validator")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const cartModel = require("../models/cart.model")
 // ======================================
 const userSchema = mongoose.Schema({
     userType: {
@@ -42,7 +43,7 @@ const userSchema = mongoose.Schema({
     password:{
         type:String,
         trim:true,
-        match:/^(?=.*\d)(?=.*[a-z][A-Z]).{6,20}$/
+        // match:/^(?=.*\d)(?=.*[a-z][A-Z]).{6,20}$/
     }, 
     gender:{
         type:String,
@@ -67,17 +68,22 @@ userSchema.virtual("myTasks", {
     foreignField:"userId"
 })
 // ==========================================
-userSchema.methods.toJSON = function(){
-    const data = this.toObject()
-    delete data.__v
-    delete data.password
-    delete data.tokens
-    return data
-}
+// userSchema.methods.toJSON = function(){
+//     const data = this.toObject()
+//     delete data.__v
+//     delete data.password
+//     delete data.tokens
+//     return data
+// }
 // ==========================================
 userSchema.pre("save", async function(){
     if(this.isModified("password"))
     this.password = await bcrypt.hash(this.password, 12)
+})
+// ==========================================
+userSchema.pre("findByIdAndDelete", async function(){
+    await cartModel.remove({userId:this._id})
+
 })
 // ==========================================
 userSchema.statics.loginMe = async (email, password) => {

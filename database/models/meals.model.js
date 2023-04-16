@@ -1,14 +1,11 @@
 const mongoose = require("mongoose")
-// const validator = require("validator")
-// const bcrypt = require("bcrypt")
-// const jwt = require("jsonwebtoken")
 const mealSchema = mongoose.Schema({
     mealName: {
         type:String,
         trim:true
     },
     meal:{
-        type:String,
+        type: Array,
         trim:true
         // carbs : ["rice", "potatoes", "sweet potato" ,"oats" ]
         // vegetables: ["zucchini", "pea" ,"okra", "green beans","broccoli" ]
@@ -17,11 +14,11 @@ const mealSchema = mongoose.Schema({
     mealCatogery: {
         type:String,
         trim: true
-        // breakfast , launch , dinner
+        // "breakfast" , "launch" , "dinner"
     },
     
     price: {
-        type: Number,
+        type: String,
         required: true
     }
 },{

@@ -28,9 +28,9 @@ const authAdmin = async (req, res, next) => {
         const userData = await userModel.findOne({
             _id: decodedToken._id,
             "tokens.token": token,
-            type: "admin"
+            userType: "admin"
         })
-        if (!userData) throw new Error("unauth")
+        if (!userData) throw new Error("Not allowed to do that")
         req.user = userData
         req.token = token
         next()

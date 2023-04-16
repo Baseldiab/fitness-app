@@ -63,9 +63,9 @@ static all = async(req,res)=>{
     }
     static login = async(req, res)=>{
         try{
-           const userData = await userModel.loginMe(req.body.email, req.body.password)
-           const token = await userData.generateToken()
-           Helper.resHandler(res,200, true, {userData,token}, "done")
+            const userData = await userModel.loginMe(req.body.email, req.body.password)
+            const token = await userData.generateToken()
+            Helper.resHandler(res,200, true, {userData,token}, "done")
         }
         catch(e){
             Helper.resHandler(res, 500, false, e, e.message)

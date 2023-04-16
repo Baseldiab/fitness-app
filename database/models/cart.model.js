@@ -1,17 +1,21 @@
 const mongoose = require("mongoose")
-// const validator = require("validator")
-// const bcrypt = require("bcrypt")
-// const jwt = require("jsonwebtoken")
 const cartSchema = mongoose.Schema({
     userId:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref:"User"
     },
-    mealId:{
-        type: String,
-        required: true,
-    },
+    meals: [
+        {
+        mealId: {
+            type: String,
+        },
+        quantity: {
+            type: Number,
+            default: 1,
+        }
+        }
+    ],
     day:{
         type:String,
         trim:true,
@@ -21,7 +25,5 @@ const cartSchema = mongoose.Schema({
 },{
     timestamps:true
 })
-
-
 const cartModel = mongoose.model("Cart", cartSchema)
-module.exports = mealModel
+module.exports = cartModel
