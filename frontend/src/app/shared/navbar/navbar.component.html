@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand text-primary fw-bolder">myFitnessApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="" aria-current="page"  routerLinkActive="text-light bg-primary rounded"
+            [routerLinkActiveOptions]="{'exact' : true} ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="login" routerLinkActive="text-light bg-primary rounded"
+            [routerLinkActiveOptions]="{'exact' : true} ">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" routerLink="meals" routerLinkActive="text-light bg-primary rounded"
+            [routerLinkActiveOptions]="{'exact' : true} ">Meals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold bg-warning rounded" routerLink="cart" routerLinkActive="text-light bg-primary"
+            [routerLinkActiveOptions]="{'exact' : true} ">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
