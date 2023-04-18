@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "aed76bac-5e32-4ceb-93bf-cd0b417c62bf",
+		"name": "1-nti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userType\":\"admin\",\r\n    \"fname\":\"basel\",\r\n    \"lname\":\"diab\",\r\n    \"age\": 26,\r\n    \"email\": \"baseldiab21@gmail.com\" ,\r\n    \"password\": \"ba123456789\",\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/register/",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/single/643a20b246c02ae86745b411",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"single",
+								"643a20b246c02ae86745b411"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delSingle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/single/643a226fe3ebe6d76eec1459",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"single",
+								"643a226fe3ebe6d76eec1459"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delAll",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/delAll",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"delAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userType\":\"admin\",\r\n    \"fname\":\"basel\",\r\n    \"lname\":\"diab\",\r\n    \"age\": 26,\r\n    \"email\": \"baseldiab120@gmail.com\" ,\r\n    \"password\": \"bass23456789\",\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/login",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/single/6433f6c84e926e876646c5e9",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"single",
+								"6433f6c84e926e876646c5e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOut",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fname\":\"bsel\",\r\n    \"lname\": \"diabd\",\r\n    \"age\": \"28\",\r\n    \"email\": \"bas2elahm@gmail.com\",\r\n    \"password\": \"1jh225ssv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/logOut",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logOut"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logoutAll",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fname\":\"bsel\",\r\n    \"lname\": \"diabd\",\r\n    \"age\": \"28\",\r\n    \"email\": \"bas2elahm@gmail.com\",\r\n    \"password\": \"1jh225ssv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/logoutAll",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logoutAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userType\":\"admin\",\r\n    \"fname\":\"ramy\",\r\n    \"lname\":\"diab\",\r\n    \"age\": 26,\r\n    \"email\": \"ranydiab21@gmail.com\" ,\r\n    \"password\": \"ba1d23456789\",\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/register/",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "meals",
+			"item": [
+				{
+					"name": "addMeal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mealName\": \"meal-1\",\r\n    \"meal\":[\"rice\",\"zucchini\",\"chicken\"],\r\n    \"mealCatogery\": \"breakfast\",\r\n    \"price\": \"100$\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}meal/add",
+							"host": [
+								"{{url}}meal"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}task/",
+							"host": [
+								"{{url}}task"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}meal/single/643b51d41f92757b0efe3304",
+							"host": [
+								"{{url}}meal"
+							],
+							"path": [
+								"single",
+								"643b51d41f92757b0efe3304"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mealName\": \"meal-3\",\r\n    \"meal\":[\"80gm-oats\",\"150gm-pea\",\"200g-fish\", \"4-egg-white\"]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}meal/single/643b51d41f92757b0efe3304",
+							"host": [
+								"{{url}}meal"
+							],
+							"path": [
+								"single",
+								"643b51d41f92757b0efe3304"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOneMeal",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}meal/single/643b51d41f92757b0efe3304",
+							"host": [
+								"{{url}}meal"
+							],
+							"path": [
+								"single",
+								"643b51d41f92757b0efe3304"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAllMeals",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}meal/",
+							"host": [
+								"{{url}}meal"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000/fit/",
+			"type": "default"
+		},
+		{
+			"key": "adminToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNhMmExNjJlMjU4ZDgxNjExMWEwNzMiLCJpYXQiOjE2ODE1MzM0ODF9.sD0MgS2_Drs1mMtZ7y3xlM-bxWEL1uAITfNDwNCqXzk",
+			"type": "default"
+		}
+	]
+}

@@ -2,7 +2,7 @@ const router = require("express").Router()
 const cartController = require("../app/controller/cart.controller")
 const { authAdmin, authUser } = require("../app/middleware/auth.middleware")
 // =================================================
-router.post("/add", authAdmin,cartController.add)
+router.post("/add", authUser,cartController.add)
 // =================================================
 router.get("/", authUser, cartController.all)
 router.get("/single/:id",authUser, cartController.single)

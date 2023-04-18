@@ -4,8 +4,8 @@ const { authAdmin, authUser } = require("../app/middleware/auth.middleware")
 // =================================================
 router.post("/add", authAdmin,mealController.add)
 // =================================================
-router.get("/", authAdmin, mealController.all)
-router.get("/single/:id",authAdmin, mealController.single)
+router.get("/", mealController.all)
+router.get("/single/:id", mealController.single)
 // ==================================================
 router.delete("/",authAdmin,mealController.delAll)
 router.delete("/single/:id",authAdmin, mealController.delSingle)
