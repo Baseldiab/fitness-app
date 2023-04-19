@@ -17,8 +17,7 @@ export class MealsComponent {
   }
   handleClick(data:any) {
     localStorage.setItem('cart' , JSON.stringify(data))
-    // const readFromStorage = (key = `meals`) =>
-    // JSON.parse(localStorage.getItem(data)) || []
+    
 
 // const writeToStorage = (data, key=`meals`) => localStorage.setItem(key, JSON.stringify(data))
   }

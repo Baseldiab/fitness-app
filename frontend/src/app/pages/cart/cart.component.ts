@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+  meals: any[] = []
 
+  readFromStorage(data) {
+    data = JSON.parse(localStorage.getItem(data)) || [];
+    this.meals = data
+  }
 }
