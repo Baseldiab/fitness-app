@@ -7,12 +7,20 @@ import { MealsComponent } from './pages/meals/meals.component';
 import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
 import { CardComponent } from './components/card/card.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { SingleMealComponent } from './pages/single-meal/single-meal.component';
 
 const routes: Routes = [
   {path:'' , component : IndexComponent},
   {path:'users' , component : UsersComponent},
-  {path:'login' , component : LoginComponent},
-  {path:'meals' , component : MealsComponent},
+  { path: 'login', component: LoginComponent },
+
+  // =================
+  {path:'meals' , children:[
+    {path:'' , component : MealsComponent },
+    {path:':singleMealId' , component : SingleMealComponent },
+  ]
+  },
+  // =================
   {path:'cart' , component : CartComponent},
   {path:"**" , component : ErrorpageComponent}
 ];

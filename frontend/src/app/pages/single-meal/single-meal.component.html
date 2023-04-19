@@ -1,0 +1,14 @@
+
+  <div class="row">
+    <div class="col-8">
+        <div class="alert alert-info">
+            <h2>{{singleMeal?.MealName}}</h2>
+            <p>{{singleMeal?.meal}}</p>
+        </div>
+    </div>
+    <div class="col-4">
+        <h3>Other meals</h3>
+        <div class="alert alert-info" *ngFor="let item of meals | slice : -3" routerLink="/meals/{{item._id}}">{{item.mealName}}</div>
+    </div>
+</div>
+

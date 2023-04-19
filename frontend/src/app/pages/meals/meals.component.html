@@ -1,1 +1,16 @@
-<p>meals works!</p>
+
+  <div class="row mt-4">
+    <div class="col-12 col-md-4" *ngFor="let item of meals">
+        <div class="card">
+            <div class="card-body cursor-pointer">
+                <h3>{{item.mealName}}</h3>
+                <p>{{item.meal}}</p>
+                <button class="btn btn-primary w-100 my-2" routerLink="/meals/{{item._id}}">
+                    Show details
+                </button>
+                <button class="btn btn-primary w-100 my-2" (click)="handleClick(item._id)">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+  </div>
+

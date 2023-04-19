@@ -1,5 +1,4 @@
 
-
-.text-red{
-    color: red;
+*{
+  --main-color: #941739;
 }

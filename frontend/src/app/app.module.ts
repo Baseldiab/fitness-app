@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { IndexComponent } from './pages/index/index.component';
+import {HttpClientModule} from '@angular/common/http';
 
 import { CardComponent } from './components/card/card.component';
 
@@ -15,6 +16,7 @@ import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MealsComponent } from './pages/meals/meals.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { SingleMealComponent } from './pages/single-meal/single-meal.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { CartComponent } from './pages/cart/cart.component';
     ErrorpageComponent,
     LoginComponent,
     MealsComponent,
-    CartComponent
+    CartComponent,
+    SingleMealComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
