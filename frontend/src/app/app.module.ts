@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { IndexComponent } from './pages/index/index.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { CardComponent } from './components/card/card.component';
 
@@ -17,6 +17,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { MealsComponent } from './pages/meals/meals.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { SingleMealComponent } from './pages/single-meal/single-meal.component';
+import { AddMealComponent } from './dashboard/add-meal/add-meal.component';
+import { EditMealComponent } from './dashboard/edit-meal/edit-meal.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { DeleteMealComponent } from './dashboard/delete-meal/delete-meal.component';
+import { ShowAllUsersComponent } from './dashboard/show-all-users/show-all-users.component';
+import { UpdateImageComponent } from './dashboard/update-image/update-image.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,12 @@ import { SingleMealComponent } from './pages/single-meal/single-meal.component';
     LoginComponent,
     MealsComponent,
     CartComponent,
-    SingleMealComponent
+    SingleMealComponent,
+    AddMealComponent,
+    EditMealComponent,
+    DeleteMealComponent,
+    ShowAllUsersComponent,
+    UpdateImageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,13 @@ import { SingleMealComponent } from './pages/single-meal/single-meal.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

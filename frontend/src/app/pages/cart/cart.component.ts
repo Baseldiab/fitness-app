@@ -6,10 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  meals: any[] = []
+  mealsArray: any = []
+  cart: string = ''
 
-  readFromStorage(data) {
-    data = JSON.parse(localStorage.getItem(data)) || [];
-    this.meals = data
+  constructor() {
+    this.cart = localStorage.getItem('cart') as string
+    // console.log(cart)
+    console.log(typeof(JSON.parse(this.cart)))
+    this.mealsArray = JSON.parse(this.cart)
   }
+  deleteMeal(i:any) {
+    this.mealsArray.splice(i,1)
+    // this.meals.delete()
+   }
 }

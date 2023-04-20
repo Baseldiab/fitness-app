@@ -1,16 +1,19 @@
-
-  <div class="row mt-4">
-    <div class="col-12 col-md-4" *ngFor="let item of meals">
-        <div class="card">
-            <div class="card-body cursor-pointer">
-                <h3>{{item.mealName}}</h3>
-                <p>{{item.meal}}</p>
-                <button class="btn btn-primary w-100 my-2" routerLink="/meals/{{item._id}}">
-                    Show details
-                </button>
-                <button class="btn btn-primary w-100 my-2" (click)="handleClick(item)">Add To Cart</button>
-            </div>
+<div class="row my-4 justify-content-center ">
+  <div class="card mb-3 mx-3 my-3 px-0" style="max-width: 540px;" *ngFor="let item of meals">
+    <div class="row g-0">
+      <div class="col-md-7">
+        <img src={{item.image}} class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">{{item.mealName}}</h5>
+          <p class="card-text">{{item.meal}}</p>
+          <a class="btn btn-danger d-block my-2" routerLink="/meals/{{item._id}}">Show details</a>
+          <a class="btn btn-danger d-block my-2" (click)="handleClick(item)">Add To Cart</a>
         </div>
+      </div>
     </div>
   </div>
+
+</div>
 

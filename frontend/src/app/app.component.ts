@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 's16';
+
+  constructor(public global: GlobalService) {
+    
+    let token = localStorage.getItem('token')
+    if(token){
+      global.isLogin = true
+    }
+  }
 }

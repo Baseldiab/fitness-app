@@ -12,6 +12,7 @@ export class SingleMealComponent {
   id : any
   singleMeal:any
   meals: any[] = []
+  // cart: any
 
   constructor(private global : GlobalService , private _activatedRoute : ActivatedRoute , private _route : Router){
       this.global.getMeals().subscribe(res=>{
@@ -26,5 +27,16 @@ export class SingleMealComponent {
         })
       })
   }
+  mealsArray : any = []
+  handleClick(data: any) {
+
+    this.mealsArray.push(data)
+
+    let oldCart = JSON.stringify(this.mealsArray)
+
+
+    localStorage.setItem('cart' , oldCart)
+  }
 
 }
+

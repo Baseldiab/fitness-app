@@ -15,10 +15,16 @@ export class MealsComponent {
       this.meals = data.data
     })
   }
-  handleClick(data:any) {
-    localStorage.setItem('cart' , JSON.stringify(data))
-    
+  mealsArray : any = []
+  handleClick(data: any) {
 
-// const writeToStorage = (data, key=`meals`) => localStorage.setItem(key, JSON.stringify(data))
+    this.mealsArray.push(data)
+
+    let oldCart = JSON.stringify(this.mealsArray)
+
+
+    localStorage.setItem('cart' , oldCart)
   }
-}
+
+  }
+

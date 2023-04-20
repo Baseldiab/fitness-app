@@ -1,14 +1,26 @@
 
-  <div class="row">
-    <div class="col-8">
-        <div class="alert alert-info">
-            <h2>{{singleMeal?.MealName}}</h2>
-            <p>{{singleMeal?.meal}}</p>
+  <div class="row mt-5 gx-4">
+    <div class="col-md-8 col-12">
+      <div class="card mb-3 my-3 px-0" style="max-width: 540px;" >
+        <div class="row g-0">
+          <div class="col-md-7">
+            <img src={{singleMeal?.image}} class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{singleMeal?.mealName}}</h5>
+              <p class="card-text">{{singleMeal?.meal}}</p>
+
+              <a class="btn btn-danger d-block my-2" (click)="handleClick(singleMeal)">Add To Cart</a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-4">
-        <h3>Other meals</h3>
-        <div class="alert alert-info" *ngFor="let item of meals | slice : -3" routerLink="/meals/{{item._id}}">{{item.mealName}}</div>
+    <div class="col-md-4 col-12">
+        <h3 class="fw-bolder fs-3">Other meals</h3>
+        <div class="alert alert-danger fs-5" style="cursor: pointer" *ngFor="let item of meals" routerLink="/meals/{{item._id}}">{{item.mealName}}</div>
     </div>
 </div>
+
 
