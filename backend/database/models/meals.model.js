@@ -16,6 +16,13 @@ const mealSchema = mongoose.Schema({
         trim: true
         // "breakfast" , "launch" , "dinner"
     },
+    content: {
+        type:String,
+        trim: true
+    },
+    image: {
+        type:String
+    },
     
     price: {
         type: String,

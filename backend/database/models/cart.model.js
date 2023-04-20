@@ -9,10 +9,6 @@ const cartSchema = mongoose.Schema({
         {
         mealId: {
             type: String,
-        },
-        quantity: {
-            type: Number,
-            default: 1,
         }
         }
     ],

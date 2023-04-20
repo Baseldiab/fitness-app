@@ -50,6 +50,10 @@ const userSchema = mongoose.Schema({
         trim:true,
         enum:["male", "female"]
     }, 
+    image:{
+        type: String,
+        required: () => this.userType == "admin"
+    },
     tokens:[
         {
             token:{

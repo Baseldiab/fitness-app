@@ -61,6 +61,7 @@ class Meal{
                 Helper.resHandler(res, 500, false, e.message, "Error featch data")
             }
         }
+        
 }
 // ==================================
 module.exports=Meal

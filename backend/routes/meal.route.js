@@ -11,5 +11,7 @@ router.delete("/",authAdmin,mealController.delAll)
 router.delete("/single/:id",authAdmin, mealController.delSingle)
 // ==================================================
 router.patch("/single/:id",authAdmin, mealController.editSingle)
+// =================================================
+
 
 module.exports = router
