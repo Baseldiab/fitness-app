@@ -16,7 +16,7 @@ router.delete("/",authAdmin,userController.delAll)
 router.delete("/single/:id",authUser, userController.delSingle)
 // ==================================================
 router.patch("/single/:id",authUser, userController.editSingle)
-router.patch("/updatePImg", authAdmin, upload.single("img"), userController.updatePimg)
+router.post("/updatePImg", authAdmin, upload.single("img"), userController.updatePimg)
 // ==================================================
 
 module.exports = router
