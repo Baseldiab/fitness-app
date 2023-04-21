@@ -16,6 +16,7 @@ export class GlobalService {
   getMeals():Observable<any>{
     return this.http.get(`${this.baseUrl}meal`)
   }
+
   getSingleMeal(mealId:any):Observable<any>{
     return this.http.get(`${this.baseUrl}meal/single/${mealId}`)
   }
@@ -31,8 +32,21 @@ export class GlobalService {
   }
 
   updateImage(obj:any):Observable<any>{
-    return this.http.patch(`${this.baseUrl}user/updatePImg` , obj)
+    return this.http.post(`${this.baseUrl}user/updatePImg` , obj)
   }
 
+  getAllUsers():Observable<any>{
+    return this.http.get(`${this.baseUrl}user/`)
+  }
+
+  addMeals(data: any):Observable<any>{
+    return this.http.post(`${this.baseUrl}meal/add`, data)
+  }
+  editMeals(mealId:any, data: any):Observable<any>{
+    return this.http.post(`${this.baseUrl}meal/single/${mealId}`, data)
+  }
+  register(data:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}user/register/` , data)
+  }
 
 }

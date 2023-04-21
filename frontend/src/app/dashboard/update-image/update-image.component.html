@@ -1,1 +1,8 @@
-<p>update-image works!</p>
+
+<div class="row mt-5">
+  <form (ngSubmit)="handleSubmit()">
+    <input class="form-control form-control-lg" type="file" (change)="handleChange($event)" >
+    <button class="btn btn-danger mt-3 fw-bold" >Upload Image</button>
+  </form>
+</div>
+

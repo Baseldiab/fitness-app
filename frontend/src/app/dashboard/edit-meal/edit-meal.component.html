@@ -1,1 +1,29 @@
-<p>edit-meal works!</p>
+<h1>edit meal</h1>
+<form my-4 #editMealform="ngForm"  (ngSubmit)="handleSubmit(editMealform)" >
+    <div>
+    <input type="text"
+    [(ngModel)]="model.mealName" name="mealName" #mealName="ngModel" [value]="singleMeal?.mealName">
+    </div>
+
+    <div>
+    <input type="text"
+    [(ngModel)]="model.meal" name="meal" #meal="ngModel" [value]="singleMeal?.meal">
+    </div>
+
+    <div>
+    <input type="text"
+    [(ngModel)]="model.mealCatogery" name="mealCatogery" #mealCatogery="ngModel" [value]="singleMeal?.mealCatogery">
+    </div>
+
+    <div>
+    <input type="text"
+    [(ngModel)]="model.price" name="price" #price ="ngModel" [value]="singleMeal?.price">
+    </div>
+
+   <div class="mb-3">
+    <input class="form-control" type="file" id="formFileMultiple" multiple
+     (change)="handleChange($event)">
+  </div>
+  <button class="btn btn-danger" >Edit Meal</button>
+</form>
+

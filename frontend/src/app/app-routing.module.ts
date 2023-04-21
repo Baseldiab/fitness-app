@@ -16,6 +16,7 @@ import { UpdateImageComponent } from './dashboard/update-image/update-image.comp
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
+  
   {path:'' , component : IndexComponent},
   {path:'users' , component : UsersComponent},
   // { path: 'login', component: LoginComponent },

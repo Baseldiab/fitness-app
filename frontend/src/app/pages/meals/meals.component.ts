@@ -7,6 +7,7 @@ import { GlobalService } from 'src/app/services/global.service';
   styleUrls: ['./meals.component.css']
 })
 export class MealsComponent {
+
   meals: any[] = []
   constructor(public global: GlobalService) {
 
@@ -15,14 +16,13 @@ export class MealsComponent {
       this.meals = data.data
     })
   }
-  mealsArray : any = []
+  
+  // =====================================
+  mealsArray: any = []
+
   handleClick(data: any) {
-
     this.mealsArray.push(data)
-
     let oldCart = JSON.stringify(this.mealsArray)
-
-
     localStorage.setItem('cart' , oldCart)
   }
 

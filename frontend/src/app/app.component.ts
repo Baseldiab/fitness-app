@@ -20,9 +20,14 @@ export class AppComponent {
       if(token){
         global.isLogin = true
       }
-    if (this.userType == 'admin')
-      this.global.navbarFlag = false
-      global.isLogin = true
+      this.Activatedroute.data.subscribe(res => {
+        console.log(res)
+        this.userType = res['userType']
+        if (this.userType == 'admin')
+          this.global.navbarFlag = false
+          this.global.isLogin = true
+          console.log(this.userType)
+      })
   }
 
 

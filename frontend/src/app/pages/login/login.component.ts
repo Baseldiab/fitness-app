@@ -25,6 +25,7 @@ export class LoginComponent {
       console.log(res)
       this.userType = res['userType']
       if (this.userType == 'admin') this.global.navbarFlag = false
+      // this.global.isLogin = true
       console.log(this.userType)
     })
   }
@@ -48,10 +49,10 @@ export class LoginComponent {
       } else if (this.userType == 'admin') {
         this.global.userLogin(this.model).subscribe(res => {
           console.log(res)
-          this.global.isLogin = true
-          this.global.navbarFlag = false
           localStorage.setItem('token', res.data.token)
           this.router.navigateByUrl('dashboard/dashboard')
+          this.global.isLogin = true
+          this.global.navbarFlag = false
         }, (e) => {
           console.log(e.error.message)
           this.msgError = e.error.message
