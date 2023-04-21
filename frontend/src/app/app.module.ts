@@ -23,6 +23,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { DeleteMealComponent } from './dashboard/delete-meal/delete-meal.component';
 import { ShowAllUsersComponent } from './dashboard/show-all-users/show-all-users.component';
 import { UpdateImageComponent } from './dashboard/update-image/update-image.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { UpdateImageComponent } from './dashboard/update-image/update-image.comp
     EditMealComponent,
     DeleteMealComponent,
     ShowAllUsersComponent,
-    UpdateImageComponent
+    UpdateImageComponent,
+    DashboardComponent,
+    NavbarDashboardComponent,
   ],
   imports: [
     BrowserModule,

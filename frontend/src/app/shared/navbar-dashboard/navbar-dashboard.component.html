@@ -1,0 +1,30 @@
+
+
+<nav class="navbar navbar-expand-lg main bg-secondary py-4 ">
+  <div class="container">
+    <a class="navbar-brand text-light fw-bolder"><i class="fa-solid fa-utensils fa-2x text-light mx-2"></i>Dashboard</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light fw-bold rounded px-3" routerLink="dashboard/showAllUser" aria-current="page"  routerLinkActive=" bg-danger "
+          [routerLinkActiveOptions]="{'exact' : true} ">AllUsers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold rounded text-light px-3" routerLink="dashboard/editMeal" routerLinkActive="bg-danger"
+          [routerLinkActiveOptions]="{'exact' : true} ">EditMeals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold rounded text-light px-3" routerLink="dashboard/addMeal" routerLinkActive="bg-danger"
+          [routerLinkActiveOptions]="{'exact' : true} ">AddMeal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold  rounded text-light px-3" routerLink="dashboard/uploadImage" routerLinkActive="bg-danger"
+          [routerLinkActiveOptions]="{'exact' : true} ">UploadImage</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

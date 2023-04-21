@@ -22,44 +22,41 @@ export class LoginComponent {
     private Activatedroute: ActivatedRoute) {
 
     this.Activatedroute.data.subscribe(res => {
-        console.log(res)
-          this.userType = res['userType']
-          if(this.userType == 'admin') this.global.navbarFlag = false
-          console.log(this.userType)
-      })
-    }
-
+      console.log(res)
+      this.userType = res['userType']
+      if (this.userType == 'admin') this.global.navbarFlag = false
+      console.log(this.userType)
+    })
+  }
   handleSubmit(form: NgForm) {
     // console.log(form)
-
     if (form.valid) {
       if (this.userType == 'user') {
         this.global.userLogin(this.model).subscribe(res => {
           console.log(res)
-
+          this.global.isLogin = true
+          localStorage.setItem('token', res.data.token)
+          if (res.apiStatus) this.router.navigateByUrl('/meals')
           // ahmed12@gmail.com
           // 123456
-          localStorage.setItem('token', res.data.tokens)
-          this.global.isLogin = true
+        }, (e) => {
+          console.log(e.error.message)
+          this.msgError = e.error.message
+        })
+        // baseldiab120@gmail.com
+        //  bass23456789
+      } else if (this.userType == 'admin') {
+        this.global.userLogin(this.model).subscribe(res => {
           console.log(res)
-          if (res.apiStatus) this.router.navigateByUrl('/meals')
-
+          this.global.isLogin = true
+          this.global.navbarFlag = false
+          localStorage.setItem('token', res.data.token)
+          this.router.navigateByUrl('dashboard/dashboard')
         }, (e) => {
           console.log(e.error.message)
           this.msgError = e.error.message
         })
       }
-
-      // baseldiab120@gmail.com
-      //  bass23456789
-
-
-      // else if (this.userType == 'admin') {
-      //   this.global.AdminLogin(this.model).subscribe(res => {
-      //     if (res.apiStatus) this.router.navigateByUrl('/dashboard')
-      //   })
-      // }
     }
   }
-    }
-
+}

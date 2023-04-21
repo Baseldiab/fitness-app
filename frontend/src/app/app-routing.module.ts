@@ -13,6 +13,7 @@ import { DeleteMealComponent } from './dashboard/delete-meal/delete-meal.compone
 import { EditMealComponent } from './dashboard/edit-meal/edit-meal.component';
 import { ShowAllUsersComponent } from './dashboard/show-all-users/show-all-users.component';
 import { UpdateImageComponent } from './dashboard/update-image/update-image.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'' , component : IndexComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
 // =================
     {path: 'dashboard', children: [
       { path: '', component: LoginComponent, data: { userType: 'admin' } },
+      { path: 'dashboard', component: DashboardComponent  },
       { path: 'addMeal', component: AddMealComponent  },
       { path: 'deleteMeal', component: DeleteMealComponent  },
       { path: 'editMeal', component: EditMealComponent  },
